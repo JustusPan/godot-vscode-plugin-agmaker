@@ -197,7 +197,7 @@ export type VERIFY_RESULT = {
 	version?: string;
 };
 
-export function verify_godot_version(godotPath: string, expectedVersion: "3" | "4" | string): VERIFY_RESULT {
+export function verify_godot_version(godotPath: string, expectedVersion: "1" | "3" | "4" | string): VERIFY_RESULT {
 	let target = clean_godot_path(godotPath);
 
 	let output = "";
