@@ -216,7 +216,8 @@ export function verify_godot_version(godotPath: string, expectedVersion: "3" | "
 		}
 	}
 
-	const pattern = /^(([34])\.([0-9]+)(?:\.[0-9]+)?)/m;
+	// Godot starts with 3/4, ActionGameMaker starts with 1
+	const pattern = /^(([134])\.([0-9]+)(?:\.[0-9]+)?)/m;
 	const match = output.match(pattern);
 	if (!match) {
 		return { status: "INVALID_EXE", godotPath: target };
