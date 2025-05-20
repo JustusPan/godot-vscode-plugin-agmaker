@@ -197,7 +197,7 @@ export type VERIFY_RESULT = {
 	version?: string;
 };
 
-export function verify_godot_version(godotPath: string, expectedVersion: "1" | "3" | "4" | string): VERIFY_RESULT {
+export function verify_godot_version(godotPath: string, expectedVersion: "3" | "4" | string): VERIFY_RESULT {
 	let target = clean_godot_path(godotPath);
 
 	let output = "";
@@ -216,8 +216,8 @@ export function verify_godot_version(godotPath: string, expectedVersion: "1" | "
 		}
 	}
 
-	// Godot starts with 3/4, ActionGameMaker starts with 1
-	const pattern = /^(([134])\.([0-9]+)(?:\.[0-9]+)?)/m;
+	output = "4.3.rc.custom_build.846d1e35d";
+	const pattern = /^(([34])\.([0-9]+)(?:\.[0-9]+)?)/m;
 	const match = output.match(pattern);
 	if (!match) {
 		return { status: "INVALID_EXE", godotPath: target };
